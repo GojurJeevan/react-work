@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Signupform() {
+export default function SignUp() {
   let navigate = useNavigate();
+
+  const { setIsUserAvailable } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     fullname: "",
@@ -51,6 +53,7 @@ export default function Signupform() {
 
     if (Object.keys(validateErrors).length === 0) {
       console.log("Submission Success", formData);
+      setIsUserAvailable(true);
       setTimeout(() => {
         navigate("/");
       }, 1000);

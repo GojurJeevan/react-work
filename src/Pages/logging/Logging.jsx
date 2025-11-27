@@ -1,14 +1,15 @@
-import React from "react";
-import Signupform from "../signup/SignUp";
+import React, { useContext } from "react";
 import Login from "../login/Login";
+import SignUp from "../signup/SignUp";
+import { AuthContext } from "../../Services/AuthContext";
 
-export default function Home() {
+export default function Logging() {
 
-  const isUserAvailable = false;
+  const {isUserAvailable} = useContext(AuthContext);
 
   return (
     <div>
-      {isUserAvailable ? <Login /> : <Signupform />}
+      {isUserAvailable ? <Login /> : <SignUp />}
     </div>
   );
 }

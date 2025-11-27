@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const { setIsUserAvailable } = useContext(AuthContext);
+
   let navigate = useNavigate();
   const [formData, setFormData] = useState({
     mobileNumber: "",
@@ -42,6 +44,7 @@ export default function Login() {
 
     if (Object.keys(validateErrors).length === 0) {
       console.log("Login Success", formData);
+      setIsUserAvailable(true); 
       setTimeout(() => {
         navigate("/");
       }, 1000);
