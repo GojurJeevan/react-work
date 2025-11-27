@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Services/AuthContext";
 
 export default function SignUp() {
   let navigate = useNavigate();
