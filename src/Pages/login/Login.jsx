@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Services/AuthContext";
 
 export default function Login() {
   const { setIsUserAvailable } = useContext(AuthContext);
@@ -43,11 +44,10 @@ export default function Login() {
     setErrors(validateErrors);
 
     if (Object.keys(validateErrors).length === 0) {
-      console.log("Login Success", formData);
-      setIsUserAvailable(true); 
-      setTimeout(() => {
+      if (Object.keys(validateErrors).length === 0) {
+        setIsUserAvailable(true);
         navigate("/");
-      }, 1000);
+      }
     } else {
       console.log("Errors", validateErrors);
     }

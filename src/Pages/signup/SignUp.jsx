@@ -53,11 +53,10 @@ export default function SignUp() {
     setErrors(validateErrors);
 
     if (Object.keys(validateErrors).length === 0) {
-      console.log("Submission Success", formData);
-      setIsUserAvailable(true);
-      setTimeout(() => {
+      if (Object.keys(validateErrors).length === 0) {
+        setIsUserAvailable(true);
         navigate("/");
-      }, 1000);
+      }
     } else {
       console.log("Error", validateErrors);
     }
